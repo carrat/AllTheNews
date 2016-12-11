@@ -1,0 +1,81 @@
+
+<!-- this is index.handlebars -->
+
+<div class="row" id="lists">
+  <div class="col-sm-6">
+    <h2>The Nice</h2>
+    <div class="listBox">
+      {{#each nice.niceChildObject}}
+          <div class="row childRow">
+            <div class="col-sm-8">
+              <img src="/static/img/{{this.Gift.dataValues.gift_icon}}" class="candyCane"><h3>{{this.dataValues.child_name}}</h3>
+            </div>
+            <div class="col-sm-4 text-right">
+              <form action="/children/naughty/{{this.dataValues.id}}" method="POST">
+                <button type="submit"  class="btn btn-secondary"  title="Move to Naughty List">Naughtify</button>
+              </form>
+            </div>
+          </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <h2 class="naughty">The Naughty</h2>
+    <div class="listBox">
+      {{#each naughty.naughtyChildObject}}
+          <div class="row childRow">
+            <div class="col-sm-8">
+              <img src="/static/img/coal.png" class="candyCane"><h3 class="naughty">{{this.dataValues.child_name}}</h3>
+            </div>
+
+            <div class="col-sm-4 text-right">
+      <!-- Add them back to the Nice List -->
+
+              <form action="/children/nice/{{this.dataValues.id}}" method="POST">
+                <button type="submit"  class="btn-icon"   title="Move to Nice List"><i class="fa fa-smile-o" aria-hidden="true"></i></button>
+              </form>
+          
+      <!-- Delete name -->
+              <form action="/children/delete/{{this.dataValues.id}}?_method=DELETE" method="POST">
+                <button type="submit"   title="Delete Child" class="btn-icon"><i class="fa fa-window-close-o aria-hidden="true"></i></button>
+              </form>
+            </div>
+          </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-12 text-center">
+      
+      <div class="inlineForm">
+        <h2 class="formTitle">Add a Child to List</h2>
+        <form method="POST" action="/children/create">
+          <div class="form-group">
+            <label for="name">Child's Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="gift">Select Gift:</label>
+            <select  data-placeholder=""  id="gift" name="gift">
+
+            <option value=""></option>
+            <option value="2">Candy Cane</option>
+            <option value="3">Gingerbread</option>
+            <option value="4">Present</option>
+            <option value="5">Coffee</option>
+            <option value="6">Ice Skates</option>
+            <option value="7">Soccer Ball</option>
+            <option value="8">Diamond</option>
+            <option value="9">Camera</option>
+            <option value="10">TV</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">Add Child</button>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
