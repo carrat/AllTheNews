@@ -15,21 +15,15 @@ var cheerio = require("cheerio");
 
 // Simple index route
 router.get("/", function(req, res) {
-  res.send(index.html);
-});
 
-// A GET request to scrape the echojs website
-router.get("/scrape", function(req, res) {
-  // First, we grab the body of the html with request
+  //scrape data on page load
   request("http://www.echojs.com/", function(error, response, html) {
-    // Then, we load that into cheerio and save it to $ for a shorthand selector
+    // save shorthand
     var $ = cheerio.load(html);
-    // Now, we grab every h2 within an article tag, and do the following:
+    // grab data
     $("article h2").each(function(i, element) {
-
       // Save an empty result object
       var result = {};
-
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this).children("a").text();
       result.link = $(this).children("a").attr("href");
@@ -52,23 +46,8 @@ router.get("/scrape", function(req, res) {
 
     });
   });
-  // Tell the browser that we finished scraping the text
-  res.send("Scrape Complete");
-});
 
-// This will get the articles we scraped from the mongoDB
-router.get("/articles", function(req, res) {
-  // Grab every doc in the Articles array
-  Article.find({}, function(error, doc) {
-    // Log any errors
-    if (error) {
-      console.log(error);
-    }
-    // Or send the doc to the browser as a json object
-    else {
-      res.json(doc);
-    }
-  });
+  res.send(index.html);
 });
 
 // Grab an article by it's ObjectId
@@ -91,32 +70,37 @@ router.get("/articles/:id", function(req, res) {
 });
 
 
-// Create a new note or replace an existing note
-router.post("/articles/:id", function(req, res) {
-  // Create a new note and pass the req.body to the entry
-  var newNote = new Note(req.body);
+// Create a new comment
+router.post("/comment/create/:id", function(req, res) {
+  // Create a new comment and pass the req.body to the entry
+  var newComment = new Comment(req.body);
 
-  // And save the new note the db
-  newNote.save(function(error, doc) {
+  // save to DB
+  newComment.save(function(error, doc) {
     // Log any errors
     if (error) {
       console.log(error);
     }
     // Otherwise
     else {
-      // Use the article id to find and update it's note
-      Article.findOneAndUpdate({ "_id": req.params.id }, { "note": doc._id })
-      // Execute the above query
-      .exec(function(err, doc) {
-        // Log any errors
-        if (err) {
-          console.log(err);
-        }
-        else {
-          // Or send the document to the browser
-          res.send(doc);
-        }
-      });
+      res.send(doc);
+    }
+  });
+});
+
+// Delete a comment
+router.post("/comment/delete/:id", function(req, res) {
+  // Create a new note and pass the req.body to the entry
+
+  // delete from DB
+  newComment.save(function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Otherwise
+    else {
+      res.send(doc);
     }
   });
 });

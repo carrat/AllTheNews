@@ -1,24 +1,24 @@
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
-  // For each one
-  for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-  }
+//Display on page
+    $("#articles").append('<div class="article-container" data-id=' + data[i]._id +  '><div class="article-content">' +
+      '<h5 class="article-title">' + data[i].title + '</h5><button type="button" class="btn-secondary">Next Article</button>'+ 
+      '<p class="article-text">' + data[i].body + '</p></div></div>');
 });
 
 
-// Whenever someone clicks a p tag
-$(document).on("click", "p", function() {
-  // Empty the notes from the note section
-  $("#notes").empty();
-  // Save the id from the p tag
+// click hander to advance article
+$(".article-container").on("click", function() {
+  // Empty the comments
+  $("#comments").empty();
+  // get the id of the current article
   var thisId = $(this).attr("data-id");
-
+  //get the id of the next article
+  var nextId = thisId + 1;
   // Now make an ajax call for the Article
   $.ajax({
     method: "GET",
-    url: "/articles/" + thisId
+    url: "/articles/" + nextId
   })
     // With that done, add the note information to the page
     .done(function(data) {

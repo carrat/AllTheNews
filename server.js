@@ -31,12 +31,14 @@ app.use(methodOverride('_method'));
 // Make public a static dir
 app.use(express.static("public"));
 
-//set up handlebars
+/*//set up handlebars
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'handlebars');*/
+
+
 // define controllers
 app.use('/', application_controller);
 
