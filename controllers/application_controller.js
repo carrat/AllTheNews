@@ -47,7 +47,23 @@ router.get("/", function(req, res) {
     });
   });
 
-  getArticles();
+  var art =  {articles: "None", comments: "None"};
+
+  Article.find().limit(1).sort({_id:-1}) 
+  .then(function(articleData){
+    var articleArr = {articleObject: articleData};
+    art.articles = articleArr;
+  })
+  .then(function(){
+      Comment.find({}) 
+      .then(function(commentData){
+        var commentArr = {commentObject: commentData};
+        art.comments = commentArr;
+      })
+      .then(function(){ 
+        res.render('index', art);
+      }) 
+  }); 
 
 });
 
@@ -72,7 +88,7 @@ router.get("/articles/:id", function(req, res) {
 
 
 // Create a new comment
-router.post("/comment/create/:id", function(req, res) {
+router.post("/comment/create", function(req, res) {
   // Create a new comment and pass the req.body to the entry
   var newComment = new Comment(req.body);
 

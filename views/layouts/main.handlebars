@@ -1,56 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+  <head>
 
-		<!-- Bootstrap -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-	     <!-- Add Font Awesome -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+       <!-- Add Font Awesome -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	    <!-- Add unique stylesheet -->
-	    <link rel="stylesheet" href="/static/css/allthenews_style.css" type="text/css" />
+      <!-- Add unique stylesheet -->
+     <link rel="stylesheet" href="css/allthenews_style.css" type="text/css" />
 
-	    <!-- Add Google Web Fonts -->
-	    <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700|Libre+Franklin:300,400,500,600,700" rel="stylesheet">
-	    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
-	    <link href="https://fonts.googleapis.com/css?family=Courgette|Satisfy" rel="stylesheet">
+      <!-- Add Google Web Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700|Libre+Franklin:300,400,500,600,700" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Courgette|Satisfy" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
 
-	    <!-- Add jQuery -->
-	    <script src="https://code.jquery.com/jquery.js"></script>
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+      <!-- Add jQuery -->
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-		<title>All the News</title>
-	</head>
+    <title>All the News</title>
+  </head>
 
-	<body>
-		<div class="container home">      
-	        <div class="jumbotron">
-	        	<div class="row">
-	        		<div class="col-sm-1">
-		            	
-		            </div>
-		            <div class="col-sm-11">
-		           		<h1 class="">All the News</h1>
-		            	<h2 class="">all the news thats fit to print.</h2>
-		            </div>
-	            </div>
-	        </div>
+  <body>
+    <div class="container home">      
+          <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm-12">
+                  <h1 class="">All the News</h1>
+                  <h2 class="">all the news thats fit to print.</h2>
+                </div>
+            </div>
+          </div>
+          <div class="row" id="lists">
+            {{{ body }}}
+         </div>
+    
+      </div>
 
-	        <div>
-	        	{{{ body }}}
-	        </div>
-	    </div>
-
-	    <footer class="footer">
-	    	<div align="center" id="credits">
-	        <p>&copy; 2016  <strong><a href="https://www.linkedin.com/in/ideabrothers">Andrew Carr</a></strong> | 
-	        Demo project for <a href="https://www.codingbootcamputaustin.com/">The Coding Boot Camp</a>  at UT Austin Center for Professional Education
- 			| 
-	        <a href="https://github.com/carrat/allthenews"  target="_blank">GitHub Repo</a>
-	        </p>
-	        </div>
-	    </footer>	
-	    <script src="js/app.js"></script>
-	</body>
+      <footer class="footer">
+        <div align="center" id="credits">
+          <p>&copy; 2016  <strong><a href="https://www.linkedin.com/in/ideabrothers">Andrew Carr</a></strong> | 
+          Demo project for <a href="https://www.codingbootcamputaustin.com/">The Coding Boot Camp</a>  at UT Austin Center for Professional Education
+      | 
+          <a href="https://github.com/carrat/AllTheNews"  target="_blank">GitHub Repo</a>
+          </p>
+          </div>
+      </footer> 
+      <script src="js/app.js"></script>
+  </body>
 </HTML>

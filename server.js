@@ -9,10 +9,7 @@ var Article = require("./models/Article.js");
 var Comment = require("./models/Comment.js");
 var request = require("request");
 var cheerio = require("cheerio");
-// Mongoose mpromise deprecated - use bluebird promises
-var Promise = require("bluebird");
 
-mongoose.Promise = Promise;
 
 var application_controller = require('./controllers/application_controller.js');
 
@@ -31,19 +28,19 @@ app.use(methodOverride('_method'));
 // Make public a static dir
 app.use(express.static("public"));
 
-/*//set up handlebars
+//set up handlebars
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }));
-app.set('view engine', 'handlebars');*/
+app.set('view engine', 'handlebars');
 
 
 // define controllers
 app.use('/', application_controller);
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/allTheNews");
+mongoose.connect("mongodb://localhost/allTheNews2");
 var db = mongoose.connection;
 
 // Show any mongoose errors

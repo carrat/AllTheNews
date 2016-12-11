@@ -9,8 +9,7 @@ var CommentSchema = new Schema({
     type: String
   },
   article: {
-    type: Schema.Types.ObjectId,
-    ref: "Article"
+    type: "String"
   }
 });
 
