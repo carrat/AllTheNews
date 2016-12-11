@@ -18,7 +18,7 @@ function getArticles() {
 
 
 // click hander to advance article
-$(".article-container").on("click", function() {
+$(".nextUp").on("click", function() {
   // Empty the comments
   $("#comments").empty();
   // get the id of the current article

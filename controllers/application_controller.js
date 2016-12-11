@@ -17,16 +17,17 @@ var cheerio = require("cheerio");
 router.get("/", function(req, res) {
 
   //scrape data on page load
-  request("http://www.echojs.com/", function(error, response, html) {
+  request("http://www.nytimes.com/pages/technology/index.html?action=click&pgtype=Homepage&region=TopBar&module=HPMiniNav&contentCollection=Tech&WT.nav=page", function(error, response, html) {
     // save shorthand
     var $ = cheerio.load(html);
     // grab data
-    $("article h2").each(function(i, element) {
+    $("div.story").each(function(i, element) {
       // Save an empty result object
       var result = {};
       // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this).children("a").text();
-      result.link = $(this).children("a").attr("href");
+      result.title = $(this).children("h3").text();
+      result.body = $(this).children("p").text();
+      result.link = $(this).children("h3").children("a").attr("href");
 
       // Using our Article model, create a new entry
       // This effectively passes the result object to the entry (and the title and link)

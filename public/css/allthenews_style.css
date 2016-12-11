@@ -325,6 +325,10 @@ form {
 	text-align: left;
 }
 
+.article-text {
+	font-size: 20px
+}
+
 .article-container {
 	background-color: rgba(30,30,30,.9);
 	color: #FFFFFF;

@@ -40,7 +40,7 @@ app.set('view engine', 'handlebars');
 app.use('/', application_controller);
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/allTheNews2");
+mongoose.connect("mongodb://localhost/allTheNewsC");
 var db = mongoose.connection;
 
 // Show any mongoose errors
