@@ -7,7 +7,7 @@ html {
 	background-image: url();
 	background-size: cover;
 	min-height: 100%;
-	background-color: rgba(151,0,0,.99);
+	background-color: rgba(0,0,0,.99);
 	
 }
 
@@ -54,15 +54,15 @@ i {
 }
 
 .jumbotron {
-	background-color: rgba(151,0,0,.6);
+	background-color: rgba(30,30,30,.6);
 	color: #FFFFFF;
 	margin-top: 20px;
 	box-shadow: 15px 15px 7px rgba(0, 0, 0, 0.1);
 	padding: 20px;
-	padding-bottom: 0px;
+	padding-bottom: 20px;
 	padding-left: 5px;
-	border: 1px solid #bc0909;
-	margin-bottom:0px;
+	border: 1px solid #333333;
+	margin-bottom:20px;
 }
 
 .container .jumbotron {
@@ -72,19 +72,17 @@ i {
 .jumbotron h1 {
 	color: #ffFFFF;
 	font-size: 70px;
-	font-family: 'Sacramento', cursive;
 	padding-bottom: 0px;
 	margin-bottom: 0px;
-	padding-left: 10px;
+	padding-left: 0px;
 }
 
 .jumbotron h2 {
 	color: #c0c0c0;
 	font-size: 18px;
-	font-family: 'Bitter', serif;
 	padding-top: 0px;
 	margin-top: 0px;
-	padding-left: 20px;
+	padding-left: 0px;
 	text-align: left;
 }
 
@@ -121,13 +119,11 @@ i {
 h1 {
 	color: #e7324b;
 	font-size: 40px;
-	font-family: 'Sacramento', cursive;
 	padding-bottom: 0px;
 }
 
 h2 {
-	font-size: 40px;
-	font-family: 'Satisfy', cursive;
+	font-size: 30px;
 	line-height: 30px;
 	padding-bottom: 10px;
 	padding-left: 0px;
@@ -142,7 +138,6 @@ h3 {
 	padding-bottom: 0px;
 	padding-top: 0px;
 	font-size: 26px;
-	font-family: 'Courgette', cursive;
 	display: inline-block;
 	padding-right: 30px;
 	margin-top: 3px;
@@ -150,7 +145,6 @@ h3 {
 
 h4 {
 	padding-top: 20px;
-	border-top: 1px solid #3e404f;
 	margin-top: 20px;
 	padding-bottom: 10px;
 	color: #9aa2ca;
@@ -205,8 +199,8 @@ hr {
 }
 
 .btn-primary {
-	background-color: #bb1818;
-	border: 1px solid #970000;
+	background-color: #333333;
+	border: 1px solid #666666;
 	padding-top: 7px;
 	padding-bottom: 7px;
 	margin-bottom: 5px;
@@ -253,10 +247,11 @@ input {
 	padding-right: 10px;
 	margin-right: 10px;
 	box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.1);
-	border: 1px solid #bc0909;
+	border: 1px solid #333333;
 	outline-style: none;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	width: 400px;
 }
 
 select {
@@ -309,11 +304,11 @@ input[type="button" i], input[type="submit" i], input[type="reset" i], input[typ
 	padding-bottom: 0px;
 	padding-top: 10px;
 	text-align: center;
-	background-color: #a40000;
+	background-color: #333333;
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	border-top: 1px solid #bc0909;
+	border-top: 1px solid #666666;
 	color: #6b0101;
 
 }

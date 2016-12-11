@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
       <!-- Add unique stylesheet -->
-      <link rel="stylesheet" href="/static/css/allthenews_style.css" type="text/css" />
+      <link rel="stylesheet" href="css/allthenews_style.css" type="text/css" />
 
       <!-- Add Google Web Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700|Libre+Franklin:300,400,500,600,700" rel="stylesheet">
@@ -38,7 +38,32 @@
           </div>
 
           <div>
-            {{{ body }}}
+              <div class="row" id="lists">
+                <div class="col-sm-8" id="articles">
+                  <h2>Articles</h2>
+                </div>
+
+                <div class="col-sm-4" id="comments">
+                  <h2>Comments</h2>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-sm-12 text-center">          
+                    <div class="inlineForm">
+                      <h4 class="formTitle">Add a Comment</h4>
+                      <form method="POST" action="/comment/create">
+                        <div class="form-group">
+                          
+                          <input type="text" id="comment_text" name="comment_text">
+                          <button type="submit" class="btn btn-primary">Add Comment</button>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+              </div>
+
           </div>
       </div>
 
