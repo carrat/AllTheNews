@@ -4,7 +4,7 @@
 
 html {
 	/*background-color: #970000;*/
-	background-image: url();
+	background-image: url(../images/newspaper2.jpg);
 	background-size: cover;
 	min-height: 100%;
 	background-color: rgba(0,0,0,.99);
@@ -54,19 +54,15 @@ i {
 }
 
 .jumbotron {
-	background-color: rgba(30,30,30,.6);
+	background-color: rgba(30,30,30,.9);
 	color: #FFFFFF;
-	margin-top: 20px;
-	box-shadow: 15px 15px 7px rgba(0, 0, 0, 0.1);
+	margin-top: 0px;
+	box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
 	padding: 20px;
 	padding-bottom: 20px;
 	padding-left: 5px;
 	border: 1px solid #333333;
-	margin-bottom:20px;
-}
-
-.container .jumbotron {
-	padding-left: 30px;
+	margin-bottom:0px;
 }
 
 .jumbotron h1 {
@@ -123,15 +119,14 @@ h1 {
 }
 
 h2 {
-	font-size: 30px;
-	line-height: 30px;
-	padding-bottom: 10px;
+	font-size: 24px;
+	line-height: 20px;
+	padding-bottom: 8px;
 	padding-left: 0px;
-	text-align: center;
+	text-align: left;
 	padding-top: 0px;
 	margin-top: 20px;
-
-
+	color: #dcb11a;
 }
 
 h3 {
@@ -155,10 +150,29 @@ h4 {
 h5 {
 	display: inline-block;
 	font-family: 'Libre Franklin', sans-serif;
+	font-size: 28px;
+	font-weight: normal;
+	padding-left: 0px;
+	padding-right: 20px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+h5.comment-title {
+	display: inline-block;
+	font-family: 'Libre Franklin', sans-serif;
 	font-size: 18px;
 	font-weight: normal;
-	padding-left: 20px;
+	padding-left: 0px;
 	padding-right: 20px;
+	color: #fcaa61;
+}
+
+h5.comment-title-even {
+	font-size: 18px;
+	color: #bdf16c;
 }
 
 h6 {
@@ -174,7 +188,6 @@ h6 {
 	display:  flex;
 	margin-bottom: 30px;
 	box-shadow: 9px 9px 7px rgba(0, 0, 0, 0.1);
-
 }
 
 hr {
@@ -183,10 +196,8 @@ hr {
 }
 
 .listBox {
-
 	padding: 20px;
 	padding-top: 0px;
-
 }
 
 .white {
@@ -209,14 +220,14 @@ hr {
 }
 
 .btn-primary:hover {
-	color:#970000;
+	color:#333333;
 	background-color: #ffffff;
-	border: 1px solid #970000;
+	border: 1px solid #333333;
 }
 
 .btn-secondary {
-	background-color: #bb1818;
-	border: 1px solid #970000;
+	background-color: #333333;
+	border: 1px solid #666666;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	margin-top: 5px;
@@ -227,9 +238,27 @@ hr {
 }
 
 .btn-secondary:hover {
+	color:#333333;
+	background-color: #ffffff;
+	border: 1px solid #333333;
+}
+
+.btn-delete {
+	background-color: #666666;
+	border: 1px solid #333333;
+	padding-top: 1px;
+	padding-bottom: 0px;
+	font-size: 10px;
+	box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.1);
 	color: #FFFFFF;
-	background-color: #000000;
-	border: 1px solid #ffffff;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.btn-delete:hover {
+	color:#333333;
+	background-color: #ffffff;
+	border: 1px solid #333333;
 }
 .fa {
 	font-size: 24px;
@@ -273,6 +302,51 @@ form {
 
 #lists {
 	margin-bottom: 30px;
+	margin-top: 0px;
+	padding: 0px;
+	margin-left: 1px;
+	margin-right: 1px;
+
+
+}
+#articles {
+	margin-bottom: 30px;
+	margin-top: 20px;
+	padding: 0px;
+	padding-right: 20px;
+	text-align: left;
+}
+#comments {
+	margin-bottom: 30px;
+	margin-top: 20px;
+	padding: 0px;
+	text-align: left;
+}
+
+.article-container {
+	background-color: rgba(30,30,30,.9);
+	color: #FFFFFF;
+	padding: 50px;
+	padding-left: 50px;
+	box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+.comment-container {
+	background-color: rgba(30,30,30,.9);
+	color: #FFFFFF;
+	padding: 50px;
+	padding-left: 50px;
+	box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+.article-content {
+	padding-bottom: 10px;
+
+}
+.comment-content {
+	padding: 0px;
+	margin: 0px;
+
 }
 
 .btn-icon {

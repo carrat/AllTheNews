@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
       <!-- Add unique stylesheet -->
-      <link rel="stylesheet" href="css/allthenews_style.css" type="text/css" />
+     <link rel="stylesheet" href="css/allthenews_style.css" type="text/css" />
 
       <!-- Add Google Web Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700|Libre+Franklin:300,400,500,600,700" rel="stylesheet">
@@ -27,44 +27,56 @@
     <div class="container home">      
           <div class="jumbotron">
             <div class="row">
-              <div class="col-sm-1">
-                  
-                </div>
-                <div class="col-sm-11">
+                <div class="col-sm-12">
                   <h1 class="">All the News</h1>
                   <h2 class="">all the news thats fit to print.</h2>
                 </div>
+            </div>
+          </div>
+          <div class="row" id="lists">
+            <div class="col-sm-7" id="articles">
+              <div class="article-container">
+                <div class="article-content">
+
+                  <h5 class="article-title">This is the title of the article</h5>
+                  <button type="button" class="btn-secondary">Next Article</button>
+                  <p class="article-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  
+                </div>
               </div>
+            </div>
+            <div class="col-sm-5" id="comments">
+              <div class="comment-container">
+
+
+                <div class="comment-content">
+                  <h5 class="comment-title">This is the comment</h5>
+                  <button type="button" class="btn-delete">X</button>
+                </div>
+
+                <div class="comment-content">
+                  <h5 class="comment-title-even">This is the comment 2</h5>
+                  <button type="button" class="btn-delete">X</button>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div>
-              <div class="row" id="lists">
-                <div class="col-sm-8" id="articles">
-                  <h2>Articles</h2>
-                </div>
-
-                <div class="col-sm-4" id="comments">
-                  <h2>Comments</h2>
-                </div>
-              </div>
-
-
-              <div class="row">
-                <div class="col-sm-12 text-center">          
-                    <div class="inlineForm">
-                      <h4 class="formTitle">Add a Comment</h4>
-                      <form method="POST" action="/comment/create">
-                        <div class="form-group">
-                          
-                          <input type="text" id="comment_text" name="comment_text">
-                          <button type="submit" class="btn btn-primary">Add Comment</button>
-                        </div>
-                      </form>
+          <div class="row">
+            <div class="col-sm-12 text-center">          
+                <div class="inlineForm">
+                  <form method="POST" action="/comment/create">
+                    <div class="form-group">
+                      
+                      <input type="text" id="comment_text" name="comment_text">
+                      <button type="submit" class="btn btn-primary">Add Comment</button>
                     </div>
+                  </form>
                 </div>
-              </div>
-
+            </div>
           </div>
+        </div>
+    
       </div>
 
       <footer class="footer">
