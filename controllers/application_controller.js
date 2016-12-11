@@ -47,7 +47,8 @@ router.get("/", function(req, res) {
     });
   });
 
-  res.send(index.html);
+  getArticles();
+
 });
 
 // Grab an article by it's ObjectId

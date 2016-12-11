@@ -1,10 +1,20 @@
-// Grab the articles as a json
-$.getJSON("/articles", function(data) {
-//Display on page
-    $("#articles").append('<div class="article-container" data-id=' + data[i]._id +  '><div class="article-content">' +
-      '<h5 class="article-title">' + data[i].title + '</h5><button type="button" class="btn-secondary">Next Article</button>'+ 
-      '<p class="article-text">' + data[i].body + '</p></div></div>');
-});
+
+function getArticles() {
+  Article.find({}, function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Or send the doc to the browser as a json object
+    else {
+      for (var i = 0; i < data.length; i++) {
+        $("#articles").append('<div class="article-container" data-id=' + data[i]._id +  '><div class="article-content">' +
+        '<h5 class="article-title">' + data[i].title + '</h5><button type="button" class="btn-secondary">Next Article</button>'+ 
+        '<p class="article-text">' + data[i].body + '</p></div></div>');
+      }
+    }
+  }); 
+}
 
 
 // click hander to advance article
