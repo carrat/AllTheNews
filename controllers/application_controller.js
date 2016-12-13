@@ -48,7 +48,7 @@ router.get("/", function(req, res) {
     });
   });
 
-  var art =  {articles: "None", comments: "None"};
+    var art =  {articles: "None", comments: "None"};
 
   Article.find().limit(1).sort({_id:-1}) 
   .then(function(articleData){
@@ -68,13 +68,9 @@ router.get("/", function(req, res) {
 
 });
 
-// Grab an article by it's ObjectId
-router.get("/articles/:id", function(req, res) {
-  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-  Article.findOne({ "_id": req.params.id })
-  // ..and populate all of the notes associated with it
-  .populate("note")
-  // now, execute our query
+router.get("/articles", function(req, res) {
+  // Grab every doc in the Articles array
+  Article.find().sort({_id:-1})
   .exec(function(error, doc) {
     // Log any errors
     if (error) {
@@ -87,7 +83,37 @@ router.get("/articles/:id", function(req, res) {
   });
 });
 
+router.get("/next/:id", function(req, res) {
 
+  console.log("Art Num: " + req.params.id);
+  newId = parseInt(req.params.id);
+  var art =  {articles: [], comments: "None"};
+
+  Article.find({}).skip(newId).limit(1).sort({_id:-1}) 
+  .then(function(articleData){
+    var articleArr = {articleObject: articleData};
+    art.articles = articleArr;
+    console.log(articleArr);
+    return articleArr;
+  })
+  .then(function(data){
+    console.log(art.articles.articleObject[0]._id);
+      Comment.find({article: art.articles.articleObject[0]._id}) 
+      .then(function(commentData){
+        var commentArr = {commentObject: commentData};
+        art.comments = commentArr;
+        console.log(commentArr);
+        console.log(art.articles.articleObject);
+        console.log(art);
+        return art;
+      })
+      .then(function(){ 
+        console.log("Start Render");
+        res.render('index', art);
+      }) 
+  }); 
+
+});
 // Create a new comment
 router.post("/comment/create", function(req, res) {
   // Create a new comment and pass the req.body to the entry
