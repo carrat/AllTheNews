@@ -32,17 +32,10 @@ $(".nextUp").on("click", function() {
   })
     // With that done, add the note information to the page
     .done(function(data) {
-      $("#articles").html('<div class="article-container" data-id=' + data[i]._id +  '><div class="article-content">' +
-        '<h5 class="article-title">' + data[i].title + '</h5><button type="button" class="btn-secondary">Next Article</button>'+ 
-        '<p class="article-text">' + data[i].body + '</p></div></div>');
+      $("#articles").html('<div class="article-container" data-id=' + data._id +  '><div class="article-content">' +
+        '<h5 class="article-title">' + data.title + '</h5><button type="button" class="btn-secondary">Next Article</button>'+ 
+        '<p class="article-text">' + data.body + '</p></div></div>');
 
-      // If there's a note in the article
-      if (data.note) {
-        // Place the title of the note in the title input
-        $("#titleinput").val(data.note.title);
-        // Place the body of the note in the body textarea
-        $("#bodyinput").val(data.note.body);
-      }
     });
 });
 
