@@ -35,6 +35,8 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
+app.set('port', process.env.PORT || 3000);
+
 
 // define controllers
 app.use('/', application_controller);
@@ -58,6 +60,6 @@ db.once("open", function() {
 
 
 // Listen on port 3000
-app.listen(3000, function() {
+app.listen(app.get('port'), function() {
   console.log("App running on port 3000!");
 });
