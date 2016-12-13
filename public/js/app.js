@@ -32,15 +32,9 @@ $(".nextUp").on("click", function() {
   })
     // With that done, add the note information to the page
     .done(function(data) {
-      console.log(data);
-      // The title of the article
-      $("#notes").append("<h2>" + data.title + "</h2>");
-      // An input to enter a new title
-      $("#notes").append("<input id='titleinput' name='title' >");
-      // A textarea to add a new note body
-      $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
-      // A button to submit a new note, with the id of the article saved to it
-      $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+      $("#articles").html('<div class="article-container" data-id=' + data[i]._id +  '><div class="article-content">' +
+        '<h5 class="article-title">' + data[i].title + '</h5><button type="button" class="btn-secondary">Next Article</button>'+ 
+        '<p class="article-text">' + data[i].body + '</p></div></div>');
 
       // If there's a note in the article
       if (data.note) {
