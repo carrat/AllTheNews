@@ -20,7 +20,7 @@ function getArticles() {
 // click hander to advance article
 $(".nextUp").on("click", function() {
   // Empty the comments
-  $("#comments").empty();
+  $(".comment-container").empty();
   // get the id of the current article
   var thisId = $(this).attr("data-id");
   //get the id of the next article
