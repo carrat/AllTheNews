@@ -17,7 +17,6 @@ var application_controller = require('./controllers/application_controller.js');
 var app = express();
 
 // Use morgan and body parser with our app
-app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
