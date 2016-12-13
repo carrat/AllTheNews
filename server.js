@@ -43,7 +43,17 @@ app.use('/', application_controller);
 
 // Database configuration with mongoose
 //mongoose.connect("mongodb://localhost/allTheNewsC");
-mongoose.connect("mongodb://heroku_6cqm81s4:bud1rrg6idluvk280v727g4epc@ds127998.mlab.com:27998/heroku_6cqm81s4");
+
+
+var databaseUri = "mongodb://heroku_6cqm81s4:bud1rrg6idluvk280v727g4epc@ds127998.mlab.com:27998/heroku_6cqm81s4";
+
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+
+} else {
+  mongoose.connect(databaseUri);
+}
+
 var db = mongoose.connection;
 
 // Show any mongoose errors
