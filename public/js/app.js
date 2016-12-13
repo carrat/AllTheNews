@@ -23,8 +23,11 @@ $(".nextUp").on("click", function() {
   $(".comment-container").empty();
   // get the id of the current article
   var thisId = $(this).attr("data-id");
+
+  console.log(thisId);
   //get the id of the next article
   var nextId = thisId + 1;
+  console.log(nextId);
   // Now make an ajax call for the Article
   $.ajax({
     method: "GET",
