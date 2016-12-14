@@ -34,17 +34,22 @@ router.get("/", function(req, res) {
       var entry = new Article(result);
 
       // Now, save that entry to the db
-      entry.save(function(err, doc) {
-        // Log any errors
+      Article.findOneAndUpdate({
+        title: entry.title
+        }, {
+          $set: {
+            title: entry.title,
+            body: entry.body,
+            link: entry.link
+          }
+        }, { upsert: true })
+      .exec(function(err) {
         if (err) {
           console.log(err);
         }
-        // Or log the doc
         else {
-          //console.log(doc);
         }
       });
-
     });
   });
 
