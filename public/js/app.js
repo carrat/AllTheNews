@@ -1,5 +1,5 @@
 
-var articleNum = 1;
+var articleNum = 0;
 
 function getArticles() {
   Article.find({}, function(error, doc) {
