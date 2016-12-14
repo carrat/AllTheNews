@@ -116,8 +116,6 @@ $(document).on("click", ".addComment", function() {
     $("#titleInput").val("");
     $("#articleInput").val("");
 
-    $(".nextUp").on("click", loadNext);
-    $(".btn-delete").on("click", deleteNote);
   });
 });
 
