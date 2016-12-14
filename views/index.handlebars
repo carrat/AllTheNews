@@ -39,8 +39,8 @@
       <form method="POST" action="/comment/create">
         <div class="form-group">
           <input type="text" name="title">
-          <input type="hidden" value="{{articles.articleObject._id}}">
-          <button type="submit" class="btn btn-primary">Add Comment</button>
+          <input type="hidden" name="article" value="">
+          <button type="submit" class="btn btn-primary addComment">Add Comment</button>
         </div>
       </form>
     </div>

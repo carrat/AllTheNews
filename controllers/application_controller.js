@@ -41,7 +41,7 @@ router.get("/", function(req, res) {
         }
         // Or log the doc
         else {
-          console.log(doc);
+          //console.log(doc);
         }
       });
 
@@ -85,7 +85,6 @@ router.get("/articles", function(req, res) {
 
 router.get("/next/:id", function(req, res) {
 
-  console.log("Art Num: " + req.params.id);
   newId = parseInt(req.params.id);
   var art =  {articles: [], comments: "None"};
 
@@ -93,23 +92,17 @@ router.get("/next/:id", function(req, res) {
   .then(function(articleData){
     var articleArr = {articleObject: articleData};
     art.articles = articleArr;
-    console.log(articleArr);
     return articleArr;
   })
   .then(function(data){
-    console.log(art.articles.articleObject[0]._id);
       Comment.find({article: art.articles.articleObject[0]._id}) 
       .then(function(commentData){
         var commentArr = {commentObject: commentData};
         art.comments = commentArr;
-        console.log(commentArr);
-        console.log(art.articles.articleObject);
-        console.log(art);
         return art;
       })
       .then(function(){ 
-        console.log("Start Render");
-        res.render('index', art);
+        res.send(art);
       }) 
   }); 
 
