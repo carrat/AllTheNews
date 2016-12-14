@@ -10,6 +10,11 @@
         <button type="button" class="btn-secondary nextUp">Next Article</button>
         <p class="article-text">{{this.body}}</p>
         <p><a href="{{this.link}}">Read More</a></p>
+
+          <input type="text" name="title" id="titleInput">
+          <input type="hidden" name="article" id="articleInput" value="{{this.id}}">
+          <button type="button" class="btn btn-primary addComment">Add Comment</button>
+      </form>
         
       </div>
     {{/each}}
@@ -23,26 +28,12 @@
     
       
       {{#each comments.commentObject}}
-      <div class="comment-content">
+      <div class="comment-content" id="{{this.id}}">
         <h5 class="comment-title">{{this.title}}</h5>
-        <button type="button" class="btn-delete" data-id="{{this.id}}">X</button>
+        <button type="button" class="btn-delete" data-comment="{{this.id}}">X</button>
       </div>
       {{/each}}
     
   </div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-sm-12 text-center">          
-    <div class="inlineForm">
-      <form method="POST" action="/comment/create">
-        <div class="form-group">
-          <input type="text" name="title">
-          <input type="hidden" name="article" value="">
-          <button type="submit" class="btn btn-primary addComment">Add Comment</button>
-        </div>
-      </form>
-    </div>
 </div>
 </div>

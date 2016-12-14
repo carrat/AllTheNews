@@ -56,7 +56,7 @@ router.get("/", function(req, res) {
     art.articles = articleArr;
   })
   .then(function(){
-      Comment.find({}) 
+      Comment.find({article: art.articles.articleObject[0]._id}) 
       .then(function(commentData){
         var commentArr = {commentObject: commentData};
         art.comments = commentArr;
@@ -83,6 +83,22 @@ router.get("/articles", function(req, res) {
   });
 });
 
+router.get("/comments", function(req, res) {
+  // Grab every doc in the Articles array
+  Comment.find().sort({_id:-1})
+  .exec(function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Otherwise, send the doc to the browser as a json object
+    else {
+      res.json(doc);
+    }
+  });
+});
+
+// Get the next article
 router.get("/next/:id", function(req, res) {
 
   newId = parseInt(req.params.id);
@@ -95,6 +111,7 @@ router.get("/next/:id", function(req, res) {
     return articleArr;
   })
   .then(function(data){
+
       Comment.find({article: art.articles.articleObject[0]._id}) 
       .then(function(commentData){
         var commentArr = {commentObject: commentData};
@@ -107,6 +124,27 @@ router.get("/next/:id", function(req, res) {
   }); 
 
 });
+
+// Get comments attached to the loaded article
+
+router.get("/comments/:id", function(req, res) {
+
+  newId = parseInt(req.params.id);
+
+  Comment.find() 
+  .then(function(commentData){
+    console.log(commentData);
+    var commentArr = commentData;
+    console.log("Comment Array: " + commentArr);
+    return commentArr;
+  })
+  .then(function(){ 
+        res.send(commentArr);    
+  }); 
+
+});
+
+
 // Create a new comment
 router.post("/comment/create", function(req, res) {
   // Create a new comment and pass the req.body to the entry
@@ -130,14 +168,14 @@ router.post("/comment/delete/:id", function(req, res) {
   // Create a new note and pass the req.body to the entry
 
   // delete from DB
-  newComment.save(function(error, doc) {
+ Comment.remove({_id: req.params.id}, function(error, doc) {
     // Log any errors
     if (error) {
       console.log(error);
     }
     // Otherwise
     else {
-      res.send(doc);
+      res.send(req.params.id);
     }
   });
 });
